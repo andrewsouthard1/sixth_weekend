@@ -6,10 +6,8 @@
 
 class PrimeNumber
   def is_prime?(number)
-    count = number - 1
-    while count > 1
-      return false if number % count == 0
-      count -= 1
+    (2..(Math.sqrt(number))).each do |divisible_by|
+      return false if number % divisible_by == 0
     end
     true
   end
@@ -26,9 +24,3 @@ class PrimeNumber
     end
   end
 end
-
-test = PrimeNumber.new
-
-p test.is_prime?(9)
-p test.is_prime?(17)
-p test.highest_prime_number_under(600851475143)
